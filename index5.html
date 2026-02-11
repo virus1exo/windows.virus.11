@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Valentine's Day 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffb6d9, #ff69b4);
+            font-family: 'Segoe UI', cursive;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 80px 20px;
+            font-size: 28px;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 50px;
+        }
+
+        p {
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: white;
+            color: #ff1493;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffe6f2;
+            transform: scale(1.1);
+        }
+
+        /* Popup Styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            overflow-y: auto;
+        }
+
+        .popup-content {
+            background: white;
+            color: #ff1493;
+            width: 85%;
+            max-width: 700px;
+            margin: 80px auto;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            background-color: #ff69b4;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="your-music5.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <h1>Happy Valentine's Day, my lovee 💕</h1>
+
+        <p>Aaj ce din me awpco bolna chahta huu howw much I love youuu.</p>
+
+        <p>
+            Before you, love was just a word. After you, love became a feeling I carry every single day. 
+            The way you laugh, the way you get annoyed at small things, the way you care even when you pretend you don’t.
+        </p>
+
+        <p>Everything about you feels like home to me.</p>
+
+        <p>
+            I feel soo safe around you, you are the only one in my life jisse me cuch bhi share cr sctau coi bhi baat bata sctau.
+        </p>
+
+        <p>
+            You are not just my girlfriend but also my best friend and ofc meriii biwiwiwi howowwo awppp.
+        </p>
+
+        <p>Awpci aankhe awpci avaz awpci muskurahatt sabb ekdum katill haiiii.</p>
+
+        <p>
+            I may not be perfect. I may not always say the right things. But one thing I promise you, my intentions with you are pure, 
+            my feelings are real, and my love for you is constant, my respect for you is on top.
+        </p>
+
+        <p>
+            I want to choose you everyday everytime, in good mood, bad mood ill always choose you.
+        </p>
+
+        <p>
+            Thank you for loving me. Thank you for being patient with me. Thank you for being you.
+        </p>
+
+        <p>
+            I love you more than words can explain… and honestly, even if I had a thousand lifetimes, 
+            I’d still choose you in every single one.
+        </p>
+
+        <button onclick="openPopup()">Click Me 💌</button>
+
+        <br><br><br><br><br><br><br>
+    </div>
+
+    <!-- Popup -->
+    <div id="poemPopup" class="popup">
+        <div class="popup-content">
+
+            <h2>Arnuu ce lieye 💖</h2>
+
+            <p>
+Before you, love was just a word I used to hear,<br>
+But after you, it became something I feel so clear.<br><br>
+
+Awpci hasi jaise subah ki pehli roshni,<br>
+Aawpci awaaz jaise sukoon ki ek kahaani.<br>
+Jab awp gussa hoti ho choti choti baaton pe,<br>
+Tab bhi lagti ho duniya ki sabse pyaari cheez mujhe.<br><br>
+
+You feel like home in a world so loud,<br>
+My calm in chaos, my safe little cloud.<br><br>
+
+Main shayad perfect nahi hoon,<br>
+Kabhi kabhi stupid bhi ho jata hoon,<br>
+But ek baat hamesha yaad rakhna —<br>
+Mera pyaar tumhare liye kabhi kam nahi hoga.<br><br>
+
+Awp sirf meri girlfriend nahi,<br>
+Meri best friend ho, meri aadat ho,<br>
+Aur future me… meri biwi bhi ho.<br><br>
+
+Awpci aankhein… jaise gehra samundar,<br>
+Awpci muskurahat… mere dil ka calendar.<br>
+Har din ka best part awpp ho,<br>
+Har dua ka last word awp howw.<br><br>
+
+In good mood, bad mood, silly fights,<br>
+Late night talks and random nights,<br>
+Mee har baar, har jagah,<br>
+Bas awpco hi choose karunga.<br><br>
+
+Agar hazaar zindagiyan bhi mil jaaye mujhe,<br>
+Toh har dafa awpco hi maangunga.<br><br>
+
+Because you are not just my love,<br>
+You are my forever. 💖
+            </p>
+<p style="font-size: 10px;">(Coini bolega gpt se likhayy🤫🤫)</p>
+
+            <button class="close-btn" onclick="closePopup()">Close</button>
+
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("poemPopup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("poemPopup").style.display = "none";
+        }
+    </script>
+<button onclick="window.location.href='index4.html#final'; playLove()" 
+style="position:fixed; bottom:20px; left:20px; padding:5px 20px; border:none; border-radius:20px; background:white; color:#ff1493; cursor:pointer;">
+⬅Gaane
+</button>
+
+</body>
+</html>
