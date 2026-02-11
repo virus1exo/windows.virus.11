@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mera Gana Sunnayy?</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to bottom right, #ff9ecf, #ff66b2);
+    text-align: center;
+    color: white;
+}
+
+/* Pages */
+.page {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.active {
+    display: flex;
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #ff1493;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #ffe6f2;
+}
+
+/* Hearts */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Music page controls */
+.controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+    <source src="music4.mp3" type="audio/mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+    <h1>Mera gana sunnayy? 😭</h1>
+    <div>
+        <button onclick="goToPage(2)">Hoi</button>
+        <button onclick="goToPage(5)">Noi</button>
+    </div>
+</div>
+<!--PAGE 5 -->
+<div id="page5" class="page">
+    <h1>Okkk</h1>
+    <button onclick="window.location.href='index3.html#final'; playLove()" 
+style="position:fixed; bottom:20px; left:20px; padding:10px 20px; border:none; border-radius:20px; background:white; color:#ff1493; cursor:pointer;">
+⬅Back
+</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page" onclick="goToPage(3)">
+    <h1>Paccaaaww???</h1>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page" onclick="stopMusicAndGo()">
+    <h1>Okokokokok Volumee cumm crowowow firir 😭💗</h1>
+</div>
+
+<!-- PAGE 4 - Music Player -->
+<div id="page4" class="page">
+    <h1>Looww sunowow 😌💞</h1>
+
+    <audio id="player" controls>
+        <source src="song1.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="controls">
+        <button onclick="prevSong()">Previous</button>
+        <button onclick="nextSong()">Next</button>
+<button onclick="window.location.href='index3.html#final'; playLove()" 
+style="position:fixed; bottom:20px; left:20px; padding:10px 20px; border:none; border-radius:20px; background:white; color:#ff1493; cursor:pointer;">
+⬅Albums
+</button>
+    </div>
+</div>
+
+<script>
+let currentPage = 1;
+let songs = ["song1.mp3", "song2.mp3", "song3.mp3"];
+let currentSong = 0;
+
+function goToPage(pageNumber) {
+    document.getElementById("page" + currentPage).classList.remove("active");
+    document.getElementById("page" + pageNumber).classList.add("active");
+    currentPage = pageNumber;
+}
+
+function stopMusicAndGo() {
+    document.getElementById("bgMusic").pause();
+    goToPage(4);
+}
+
+function nextSong() {
+    currentSong++;
+    if (currentSong >= songs.length) currentSong = 0;
+    document.getElementById("player").src = songs[currentSong];
+    document.getElementById("player").play();
+}
+
+function prevSong() {
+    currentSong--;
+    if (currentSong < 0) currentSong = songs.length - 1;
+    document.getElementById("player").src = songs[currentSong];
+    document.getElementById("player").play();
+}
+
+/* Floating Hearts */
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
