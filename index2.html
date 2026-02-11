@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My ARNUNUU 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffb6d9, #ff69b4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main Heading */
+.main-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 80px;
+    letter-spacing: 5px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 40px #ff1493; }
+}
+
+/* Typing */
+.typing {
+    font-size: 22px;
+    margin-top: 15px;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 40px;
+}
+
+/* Button */
+.love-btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff1493;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.love-btn:hover {
+    background: #ff1493;
+    color: white;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Love Letter Popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 105, 180, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.popup-content {
+    background: white;
+    color: #ff1493;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    animation: scaleUp 0.5s ease;
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-btn {
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #ff1493;
+}
+
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<h1 class="main-name">ARNUNUU 💗</h1>
+<div class="typing" id="typingText"></div>
+
+<button class="love-btn" onclick="openLetter()">💌 Click to Open Surprise</button>
+
+<!-- Love Letter Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        Arnikaa 💖<br><br>
+        Tum meri sabse pyaari notification ho…  
+        jise main kabhi mute nahi karna chahta 🥺💕<br><br>
+        Long distance tough hai…  
+        but my love for you is tougher 😌❤️<br><br>
+        Main promise karta hoon…  
+        chahe kitni bhi doori ho…  
+        ARNUNUU will always belong to me 💞<br><br>
+        I love you so much Arnikaa 💗
+        <div class="close-btn" onclick="closeLetter()">Close 💋</div>
+    </div>
+</div>
+
+<script>
+
+/* Typing Messages */
+const messages = [
+    "Arnikaa, tum meri duniya ho 💕",
+    "Distance sirf map pe hai ❤️",
+    "I fall for you more every day 😘",
+    "My sweet ARNIKAA, forever mine 💞"
+];
+
+let messageIndex = 0;
+let charIndex = 0;
+const typingElement = document.getElementById("typingText");
+
+function typeEffect() {
+    if (charIndex < messages[messageIndex].length) {
+        typingElement.textContent += messages[messageIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 60);
+    } else {
+        setTimeout(eraseEffect, 2000);
+    }
+}
+
+function eraseEffect() {
+    if (charIndex > 0) {
+        typingElement.textContent = messages[messageIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 40);
+    } else {
+        messageIndex = (messageIndex + 1) % messages.length;
+        setTimeout(typeEffect, 500);
+    }
+}
+
+typeEffect();
+
+/* Floating Hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = Math.random() > 0.5 ? "💗" : "Arnikaa 💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    heart.style.fontSize = (Math.random() * 15 + 15) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+}
+setInterval(createHeart, 300);
+
+/* Popup Functions */
+function openLetter() {
+    document.getElementById("popup").classList.add("show");
+}
+
+function closeLetter() {
+    document.getElementById("popup").classList.remove("show");
+}
+
+</script>
+<button onclick="window.location.href='index.html#final'" 
+style="position:fixed; bottom:20px; left:20px; padding:10px 20px; border:none; border-radius:20px; background:white; color:#ff1493; cursor:pointer;">
+⬅ Back to Valentine 💕
+</button>
+
+
+</body>
+</html>

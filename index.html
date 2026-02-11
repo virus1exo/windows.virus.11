@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Warning</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: monospace;
+    overflow:hidden;
+}
+
+/* ===== VIRUS SCREEN ===== */
+#virus{
+    background:black;
+    color:red;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    animation:flicker 0.15s infinite;
+}
+
+@keyframes flicker{
+    0%{opacity:1}
+    50%{opacity:0.85}
+    100%{opacity:1}
+}
+
+.warning{
+    font-size:2.2rem;
+    font-weight:bold;
+    text-shadow:0 0 10px red;
+}
+
+.scan{
+    margin-top:14px;
+    font-size:1.1rem;
+}
+
+.green{
+    color:#00ff66;
+    text-shadow:0 0 10px #00ff66;
+    font-size:1.2rem;
+    margin-top:20px;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch{
+    0%{opacity:1}
+    50%{opacity:0.6}
+    100%{opacity:1}
+}
+
+.blink{
+    animation: blink 1s infinite;
+}
+@keyframes blink{
+    50%{opacity:0}
+}
+
+.tap{
+    margin-top:30px;
+    color:white;
+    font-size:1.2rem;
+    animation: blink 1s infinite;
+}
+
+/* ===== MAIN SITE ===== */
+#site{
+    display:none;
+    background:pink;
+    height:100vh;
+    text-align:center;
+    font-family:'Comic Sans MS', cursive;
+    position:relative;
+    overflow:hidden;
+}
+
+.page{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+}
+
+.page.active{
+    display:flex;
+}
+
+h1{
+    color:#b30059;
+    font-size:2.5rem;
+}
+
+p{
+    color:#800040;
+    font-size:1.3rem;
+    max-width:850px;
+    line-height:1.7;
+    white-space:pre-line;
+}
+
+/* ===== BUTTON ANIMATIONS ===== */
+button{
+    background:#ff4d88;
+    color:white;
+    border:none;
+    padding:14px 32px;
+    font-size:1.2rem;
+    border-radius:30px;
+    margin:10px;
+    cursor:pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+button:active{
+    transform:scale(0.92);
+    box-shadow:0 2px 6px rgba(0,0,0,0.3);
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.sad{
+    font-size:6rem;
+}
+
+/* hearts */
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh)}
+    to{transform:translateY(-10vh)}
+}
+
+img{
+    width:200px;
+    border-radius:15px;
+    margin:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIRUS SCREEN -->
+<div id="virus" onclick="startVirus()">
+    <div class="warning">⚠️ SECURITY BREACH DETECTED ⚠️</div>
+    <div class="scan">Accessing personal files...</div>
+    <div class="scan blink">Uploading data ███▒▒▒▒</div>
+    <div class="scan">Camera access: GRANTED</div>
+    <div class="scan blink">Location tracking ENABLED</div>
+
+    <div class="green">
+        TARGET IDENTIFIED:<br>
+        ARNIKA BONGIRWAR
+    </div>
+
+    <div class="tap">CLICK TO GRANT ACCESS</div>
+</div>
+
+<!-- AUDIO -->
+<audio id="virusSound" loop>
+    <source src="virus.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="loveMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MAIN SITE -->
+<div id="site">
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="page1">
+        <h1>Will you be my valentine bbggg 💕</h1>
+        <button onclick="playLove()">▶ Play Music 💖</button>
+        <button onclick="goTo('page2')">YES</button>
+        <button onclick="goTo('pageSad')">no</button>
+    </div>
+
+    <!-- SAD PAGE -->
+    <div class="page" id="pageSad">
+        <div class="sad">😢</div>
+        <h1>haaa bolwowowo yawrrwrw :(("</h1>
+        <button onclick="goTo('page1')">Go Back 💔</button>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+        <h1>Paccaaa??? 😳💖</h1>
+        <p>Fir puri zindagi mere sath rehna padegaaw 🥰</p>
+        <button onclick="goTo('pageFinal')">YES</button>
+        <button onclick="goTo('pageFinal')">yes (coi aur rasta noii 😌)</button>
+    </div>
+
+    <!-- FINAL PAGE -->
+    <div class="page" id="pageFinal">
+        <h1>YAYAYAYAY💞</h1>
+        <p>
+I'm so incredibly lucky to have you in my life. You are my smile on bad days, my calm in chaos, my favorite thought every single time.💖
+Aawp meri zindagi ka woh hissa howww jiske bina sab kuch adhoora sa lagta hai.✨  
+Awpci ek muskurahat meri saari thakaan mita deti hai.✨  
+Main awpce saath har subah, har shaam, har khushi aur har mushkil jeena chahta hoon. Haath pakad ke zindagi ke har mod par, bas awpcee saath chalna chahta hoon.
+You are not just my love, you are my home, my peace, my forever. Main awpco aaj bhi chunta hoon, aur har din, har janam, phir se chungagaga.💍
+        </p>
+
+        <div>
+            <img src="image1.jpg">
+            <img src="image2.jpg">
+            <img src="image3.jpg">
+<button onclick="window.location.href='index2.html'">
+Enter Secret Surprise 💖
+</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function startVirus(){
+    const v = document.getElementById("virusSound");
+    v.play();
+
+    setTimeout(()=>{
+        v.pause();
+        v.currentTime = 0;
+        document.getElementById("virus").style.display="none";
+        document.getElementById("site").style.display="block";
+    },5000);
+}
+
+function goTo(id){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+function playLove(){
+    document.getElementById("loveMusic").play();
+}
+
+/* hearts */
+for(let i=0;i<30;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️ 🌹";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(4+Math.random()*4)+"s";
+    document.body.appendChild(h);
+}
+</script>
+<script>
+window.onload = function() {
+    if(window.location.hash === "#final"){
+        document.getElementById("virus").style.display = "none";
+        document.getElementById("site").style.display = "block";
+        goTo('pageFinal');
+    }
+};
+</script>
+
+
+</body>
+</html>
+
